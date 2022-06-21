@@ -1,6 +1,8 @@
 'use strict';
 const puppeteer = require('puppeteer');
 
+
+
 const getAllProductsComputer = async (req, res,next) => {
     const Browser = await puppeteer.launch({ headless: true });
     const Page = await Browser.newPage();
@@ -10,14 +12,18 @@ const getAllProductsComputer = async (req, res,next) => {
         return products.map(product => {
             const name = product.querySelector('.a-size-base-plus.a-color-base.a-text-normal').innerText;
             let price;
-            const classification = document.querySelector("span")
+            let BestSeller=true;
             try{
                 price= product.querySelector('.a-offscreen').innerText;
+                
             }
             catch(err){
                 price="not available product";
             }
-            return { name,price,classification};
+            if(product.querySelector(".a-badge-label")===null){
+                BestSeller=false;
+            }
+            return { name,price,BestSeller};
         });
 
     }
@@ -36,14 +42,17 @@ const getAllProductsVideoAndAudio = async (req, res,next) => {
         return products.map(product => {
             const name = product.querySelector('.a-size-base-plus.a-color-base.a-text-normal').innerText;
             let price;
-            const classification = document.querySelector("span")
+            let BestSeller= true;
             try{
                 price= product.querySelector('.a-offscreen').innerText;
             }
             catch(err){
                 price="not available product";
             }
-            return { name,price,classification};
+            if(product.querySelector(".a-badge-label")===null){
+                BestSeller=false;
+            }
+            return { name,price,BestSeller};
         });
 
     }
