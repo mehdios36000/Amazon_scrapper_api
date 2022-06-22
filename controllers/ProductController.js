@@ -2,7 +2,7 @@
 const puppeteer = require('puppeteer');
 const url_computer="https://www.amazon.com/s?i=specialty-aps&bbn=16225009011&rh=n%3A%2116225009011%2Cn%3A281407&ref=nav_em__nav_desktop_sa_intl_accessories_and_supplies_0_2_5_2"
 const url_audio_video="https://www.amazon.com/s?i=computers-intl-ship&bbn=16225007011&rh=n%3A16225007011%2Cn%3A172456%2Cn%3A11548951011&dc&fs=true&ds=v1%3AhGungeZ2bDQ8vvZMlNdIg%2BnFSMrq8Y1rwfOcb9WUUb8&qid=1655840187&rnid=172456&ref=sr_nr_n_1"
-
+const url_search="https://www.amazon.com/s?k=ddd&crid=2J73C7FSO35QU&sprefix=%2Caps%2C395&ref=nb_sb_noss_2";
 
 const ScrapWebProducts = async (url) => {
     const Browser = await puppeteer.launch({ headless: true });
@@ -34,6 +34,10 @@ const ScrapWebProducts = async (url) => {
 
 }
 
+const ScrapWebSearch = async (url,search) => {
+    url=url.replace("ddd",search);
+    return await ScrapWebProducts(url);
+}
 
 
 const getAllProductsComputer = async (req, res,next) => {
@@ -47,6 +51,13 @@ const getAllProductsVideoAndAudio = async (req, res,next) => {
     res.status(200).json(products);
 }
 
+const SearchProduct = async (req, res,next) => {
+    const {search}=req.params;
+    const products = await ScrapWebSearch(url_search,search);
+    res.status(200).json(products);
+}
+
+
 
 
 
@@ -54,5 +65,6 @@ const getAllProductsVideoAndAudio = async (req, res,next) => {
 
 module.exports = {
     getAllProductsComputer,
-    getAllProductsVideoAndAudio
+    getAllProductsVideoAndAudio,
+    SearchProduct
 }
