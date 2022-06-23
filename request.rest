@@ -5,22 +5,20 @@ Content-Type: application/json
     "username": "test",
     "password": "test"
     }
-
-
 ###
 GET http://localhost:3001/test
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImlhdCI6MTY1NTkwMzAyMywiZXhwIjoxNjU1OTA2NjIzfQ.mkAVN1niLQm5yN61jjMos4toQXzCizWVLNcjUpMr4iY
+Authorization: Bearer <Token>
 ###
 GET http://localhost:3001/api/products/computer/accessories
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImlhdCI6MTY1NTg5NjU0NSwiZXhwIjoxNjU1OTAwMTQ1fQ.kJVYJJaKEC7Pqa-GENL3bOeDiZKzBE9TDltZRz54haM
+Authorization: Bearer <Token>
 ###
 GET http://localhost:3001/api/products/tech/va
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImlhdCI6MTY1NTg5NjU0NSwiZXhwIjoxNjU1OTAwMTQ1fQ.kJVYJJaKEC7Pqa-GENL3bOeDiZKzBE9TDltZRz54haM
+Authorization: Bearer <Token>
 ###
 POST http://localhost:3001/api/products/search/alaoui
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImlhdCI6MTY1NTkwMDI5NiwiZXhwIjoxNjU1OTAzODk2fQ.FLiDeb-HpDx2aC_R9Mhkk7aXVOHL5BcKCI-g7vpeAuQ
+Authorization: Bearer <Token>
 ###
 GET http://localhost:3001/api/products/today/deals
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidGVzdCIsImlhdCI6MTY1NTkwMzAyMywiZXhwIjoxNjU1OTA2NjIzfQ.mkAVN1niLQm5yN61jjMos4toQXzCizWVLNcjUpMr4iY
+Authorization: Bearer <Token>
 
 
